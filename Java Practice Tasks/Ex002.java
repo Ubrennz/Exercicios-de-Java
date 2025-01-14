@@ -1,4 +1,4 @@
-public class Ex001b {
+public class Ex002 {
     public static void main(String[] args) {        
         // int to str:
         int x = 10;
