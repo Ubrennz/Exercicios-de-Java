@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import entities.Produto;
 
-public class Aula21 {
+public class Ex028 {
    public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		Produto x = new Produto();
