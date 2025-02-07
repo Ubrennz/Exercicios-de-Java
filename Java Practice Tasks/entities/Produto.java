@@ -11,12 +11,11 @@ public class Produto {
     }
 
     public void addQtde(int valorParaSerAdd) {
-        int qtde = quantidade += valorParaSerAdd;
-        System.out.printf("Produto: %s%nPreço: %.2f%nQuantidade: %d%n", nome, preco, qtde);
+        quantidade += valorParaSerAdd;
+        System.out.printf("Produto: %s%nPreço: %.2f%nQuantidade: %d%n", nome, preco, quantidade);
     }
 
     public void removerQtde(int valorParaSerRemovido) {
-        int qtde = quantidade -= valorParaSerRemovido;
-        System.out.printf("Produto: %s%nPreço: %.2f%nQuantidade: %d%n", nome, preco, qtde);
+        quantidade -= valorParaSerRemovido;        
     }
 } 
