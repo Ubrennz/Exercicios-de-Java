@@ -12,10 +12,13 @@ public class Produto {
 
     public void addQtde(int valorParaSerAdd) {
         quantidade += valorParaSerAdd;
-        System.out.printf("Produto: %s%nPreço: %.2f%nQuantidade: %d%n", nome, preco, quantidade);
+        System.out.printf("Lista atualiada\nProduto: %s%nPreço: %.2f%nQuantidade: %d%n", nome, preco, quantidade);
+        System.out.println("Valor total: " + totalValorEstoque());
     }
 
     public void removerQtde(int valorParaSerRemovido) {
-        quantidade -= valorParaSerRemovido;        
+        quantidade -= valorParaSerRemovido;
+        System.out.printf("Lista atualizada\nProduto: %s%nPreço: %.2f%nQuantidade: %d%n", nome, preco, quantidade);
+        System.out.println("Valor total: " + totalValorEstoque());
     }
 } 
