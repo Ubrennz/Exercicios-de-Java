@@ -42,6 +42,7 @@ public class Ex042 {
                     break;
                 default:
                     System.out.println("Opção inválida!");
+                    break;
             }
         } while (opcao != 0);
 
