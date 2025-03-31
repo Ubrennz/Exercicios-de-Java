@@ -22,8 +22,14 @@ public class Ex043 {
         int inicio = sc.nextInt();
         System.out.print("Digite o final: ");
         int fim = sc.nextInt();
+        System.out.print("Digite quantos sorteios serão realizados: ");
+        int sorteios = sc.nextInt();
 
-        System.out.println(random(inicio, fim));
+        System.out.println("Números sorteados: ");
+
+        for (int i = 0; i < sorteios; i++) {
+            System.out.println(random(inicio, fim));
+        }
 
         sc.close();
     }
