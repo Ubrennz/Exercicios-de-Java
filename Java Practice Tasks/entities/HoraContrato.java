@@ -41,6 +41,14 @@ public class HoraContrato {
         this.horas = horas;
     }
 
+    public String toString() {
+        return "HoraContrato{" +
+                "dataContrato=" + dataContrato +
+                ", valorPorHora=" + valorPorHora +
+                ", horas=" + horas +
+                '}';
+    }
+
     public double valorTotal() {
         return valorPorHora * horas;
     }
