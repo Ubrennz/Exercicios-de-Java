@@ -52,6 +52,20 @@ public class Trabalhador {
         this.departamento = departamento;
     }
 
+    public List<HoraContrato> getContratos() {
+        return contratos;
+    }
+
+    public String toString() {
+        return "Trabalhador{" +
+                "nome='" + nome + '\'' +
+                ", nivel=" + nivel +
+                ", salarioMinimo=" + salarioMinimo +
+                ", departamento=" + departamento +
+                ", contratos=" + contratos +
+                '}';
+    }
+
     public void adicionarContrato(HoraContrato contrato) {
         contratos.add(contrato);
     }
@@ -60,11 +74,11 @@ public class Trabalhador {
         contratos.remove(contrato);
     }
 
-    public Double resultado(int ano, int mes) {
+    public Double renda(int mes, int ano) {
         double soma = salarioMinimo;
 
         for (HoraContrato c : contratos) {
-            if (c.getDataContrato().getYear() == ano && c.getDataContrato().getMonthValue() == mes) {
+            if (c.getDataContrato().getMonthValue() == mes && c.getDataContrato().getYear() == ano) {
                 soma += c.valorTotal();
             }
         }
