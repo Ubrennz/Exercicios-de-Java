@@ -3,28 +3,29 @@ package entities;
 import entities.enums.StatusDoPedido;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.ArrayList;
 
 public class Pedido {
-    private LocalDateTime momento;
+    private LocalDateTime momentoPedido;
     private StatusDoPedido statusDoPedido;
     private Cliente cliente;
 
     private List<ItemDoPedido> itensDoPedido = new ArrayList<>();
 
-    public Pedido(LocalDateTime momento, StatusDoPedido statusDoPedido, Cliente cliente) {
-        this.momento = momento;
+    public Pedido(LocalDateTime momentoPedido, StatusDoPedido statusDoPedido, Cliente cliente) {
+        this.momentoPedido = momentoPedido;
         this.statusDoPedido = statusDoPedido;
         this.cliente = cliente;
     }
 
-    public LocalDateTime getMomento() {
-        return momento;
+    public LocalDateTime getMomentoPedido() {
+        return momentoPedido;
     }
 
-    public void setMomento(LocalDateTime momento) {
-        this.momento = momento;
+    public void setMomentoPedido(LocalDateTime momentoPedido) {
+        this.momentoPedido = momentoPedido;
     }
 
     public StatusDoPedido getStatusDoPedido() {
@@ -45,6 +46,26 @@ public class Pedido {
 
     public List<ItemDoPedido> getItensDoPedido() {
         return itensDoPedido;
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("\n");
+        sb.append("Sumario do pedido: " + "\n");
+        sb.append("Momento do pedido: ");
+        sb.append(momentoPedido.format(DateTimeFormatter.ofPattern("dd/MM/yyyy kk:mm:ss")) + "\n");
+        sb.append("Status do pedido: ");
+        sb.append(statusDoPedido + "\n");
+        sb.append("Cliente: " + cliente.getNomeCliente() + " " + cliente.getAniversarioCliente() + " - " + cliente.getEmailCliente() + "\n");
+        sb.append("Itens do pedido: " + "\n");
+
+        for (ItemDoPedido item : itensDoPedido) {
+            sb.append(item.toString() + "\n");
+        }
+
+        sb.append("Preço total: " + total());
+        return sb.toString();
     }
 
     public void addPedido(ItemDoPedido itemDoPedido) {
