@@ -1,31 +1,31 @@
 package entities;
 
 public class ItemDoPedido {
-    private Integer quantidade;
-    private Double preco;
+    private Integer quantidadeItemDoPedido;
+    private Double precoItemDoPedido;
 
     private Produto2 produto2;
 
-    public ItemDoPedido(Integer quantidade, Double preco, Produto2 produto2) {
-        this.quantidade = quantidade;
-        this.preco = preco;
+    public ItemDoPedido(Integer quantidadeItemDoPedido, Double precoItemDoPedido, Produto2 produto2) {
+        this.quantidadeItemDoPedido = quantidadeItemDoPedido;
+        this.precoItemDoPedido = precoItemDoPedido;
         this.produto2 = produto2;
     }
 
-    public Integer getQuantidade() {
-        return quantidade;
+    public Integer getQuantidadeItemDoPedido() {
+        return quantidadeItemDoPedido;
     }
 
-    public void setQuantidade(Integer quantidade) {
-        this.quantidade = quantidade;
+    public void setQuantidadeItemDoPedido(Integer quantidadeItemDoPedido) {
+        this.quantidadeItemDoPedido = quantidadeItemDoPedido;
     }
 
-    public Double getPreco() {
-        return preco;
+    public Double getPrecoItemDoPedido() {
+        return precoItemDoPedido;
     }
 
-    public void setPreco(Double preco) {
-        this.preco = preco;
+    public void setPrecoItemDoPedido(Double precoItemDoPedido) {
+        this.precoItemDoPedido = precoItemDoPedido;
     }
 
     public Produto2 getProduto2() {
@@ -36,7 +36,12 @@ public class ItemDoPedido {
         this.produto2 = produto2;
     }
 
+    public String toString() {
+        return produto2.getnomeProduto() + ", R$" + produto2.getPrecoProduto()
+                + ", Quantidade: " + quantidadeItemDoPedido + ", Subtotal: " + subTotal();
+    }
+
     public Double subTotal() {
-        return quantidade * preco;
+        return quantidadeItemDoPedido * precoItemDoPedido;
     }
 }
