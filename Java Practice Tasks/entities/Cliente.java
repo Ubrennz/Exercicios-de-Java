@@ -3,37 +3,37 @@ package entities;
 import java.time.LocalDate;
 
 public class Cliente {
-    private String nome;
-    private String email;
-    private LocalDate aniversario;
+    private String nomeCliente;
+    private String emailCliente;
+    private LocalDate aniversarioCliente;
 
-    public Cliente(String nome, String email, LocalDate aniversario) {
-        this.nome = nome;
-        this.email = email;
-        this.aniversario = aniversario;
+    public Cliente(String nomeCliente, String emailCliente, LocalDate aniversarioCliente) {
+        this.nomeCliente = nomeCliente;
+        this.emailCliente = emailCliente;
+        this.aniversarioCliente = aniversarioCliente;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNomeCliente() {
+        return nomeCliente;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
     }
 
-    public String getEmail() {
-        return email;
+    public String getEmailCliente() {
+        return emailCliente;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmailCliente(String emailCliente) {
+        this.emailCliente = emailCliente;
     }
 
-    public LocalDate getAniversario() {
-        return aniversario;
+    public LocalDate getAniversarioCliente() {
+        return aniversarioCliente;
     }
 
-    public void setAniversario(LocalDate aniversario) {
-        this.aniversario = aniversario;
+    public void setAniversarioCliente(LocalDate aniversarioCliente) {
+        this.aniversarioCliente = aniversarioCliente;
     }
 }
