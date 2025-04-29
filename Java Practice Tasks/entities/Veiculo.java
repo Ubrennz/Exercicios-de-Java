@@ -1,7 +1,7 @@
 package entities;
 
 public class Veiculo {
-    private String marcarVeiculo;
+    private String marcarDoVeiculo;
     private String modeloVeiculo;
     private Integer anoVeiculo;
 
@@ -9,14 +9,14 @@ public class Veiculo {
 
     }
 
-    public Veiculo(String marcarVeiculo, String modeloVeiculo, Integer anoVeiculo) {
-        this.marcarVeiculo = marcarVeiculo;
+    public Veiculo(String marcarDoVeiculo, String modeloVeiculo, Integer anoVeiculo) {
+        this.marcarDoVeiculo = marcarDoVeiculo;
         this.modeloVeiculo = modeloVeiculo;
         this.anoVeiculo = anoVeiculo;
     }
 
-    public String getMarcarVeiculo() {
-        return marcarVeiculo;
+    public String getMarcarDoVeiculo() {
+        return marcarDoVeiculo;
     }
 
     public String getModeloVeiculo() {
@@ -27,8 +27,8 @@ public class Veiculo {
         return anoVeiculo;
     }
 
-    public String exibirInformacoes() {
-        return "Marca: " + marcarVeiculo
+    public String toString() {
+        return "Marca: " + marcarDoVeiculo
                 + ", Modelo: " + modeloVeiculo
                 + ", Ano: " + anoVeiculo;
     }
