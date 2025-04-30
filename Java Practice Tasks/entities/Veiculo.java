@@ -26,11 +26,4 @@ public class Veiculo {
     public Integer getAnoVeiculo() {
         return anoVeiculo;
     }
-
-    public String toString() {
-        return "Marca: " + marcarDoVeiculo
-                + ", Modelo: " + modeloVeiculo
-                + ", Ano: " + anoVeiculo;
-    }
-
 }
