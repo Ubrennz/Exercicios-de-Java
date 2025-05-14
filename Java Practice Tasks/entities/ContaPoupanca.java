@@ -20,7 +20,8 @@ public class ContaPoupanca extends Conta {
         this.taxaDeJuros = taxaDeJuros;
     }
 
-    public String toString3() {
+    @Override
+    public String toString() {
         return "ContaPoupanca{" +
                 "taxaDeJuros=" + taxaDeJuros +
                 '}';
