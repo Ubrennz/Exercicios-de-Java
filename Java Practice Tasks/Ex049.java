@@ -18,10 +18,10 @@ public class Ex049 {
 
         // DownCasting
         ContaNegocios novaContaNegocios = (ContaNegocios) conta;
-        System.out.println(novaContaNegocios.toString2());
+        System.out.println(novaContaNegocios.toString());
 
         ContaPoupanca novaContaPoupanca = (ContaPoupanca) conta2;
-        System.out.println(novaContaPoupanca.toString3());
+        System.out.println(novaContaPoupanca.toString());
 
     }
 }
