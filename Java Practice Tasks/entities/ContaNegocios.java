@@ -20,7 +20,8 @@ public class ContaNegocios extends Conta {
         this.limiteEmprestimo = limiteEmprestimo;
     }
 
-    public String toString2() {
+    @Override
+    public String toString() {
         return "ContaNegocios{" +
                 "limiteEmprestimo=" + limiteEmprestimo +
                 '}';
