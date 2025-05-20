@@ -11,9 +11,6 @@ public class Ex050 {
 
         List<Empregado> empregados = new ArrayList<>();
 
-        Empregado empregadoComum;
-        EmpregadoTerceirizado empregadoTerceirizado;
-
         System.out.print("Digite o números de empregados: ");
         int n = sc.nextInt();
         sc.nextLine();
@@ -34,10 +31,10 @@ public class Ex050 {
                 System.out.print("Digite o valor das despesas adicionais: ");
                 double despesaAdicional = sc.nextDouble();
 
-                empregadoTerceirizado = new EmpregadoTerceirizado(nome, horasTrabalhadas, valorPorHoraTrabalhada, despesaAdicional);
+                Empregado empregadoTerceirizado = new EmpregadoTerceirizado(nome, horasTrabalhadas, valorPorHoraTrabalhada, despesaAdicional);
                 empregados.add(empregadoTerceirizado);
             } else {
-                empregadoComum = new Empregado(nome, horasTrabalhadas, valorPorHoraTrabalhada);
+                Empregado empregadoComum = new Empregado(nome, horasTrabalhadas, valorPorHoraTrabalhada);
                 empregados.add(empregadoComum);
             }
         }
