@@ -1,88 +1,57 @@
 package entities;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import entities.enums.NivelTrabalhador;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Trabalhador {
-    private String nome;
-    private NivelTrabalhador nivel;
-    private Double salarioMinimo;
+    private String nomeTrabalhador;
+    private NivelTrabalhador nivelTrabalhador;
+    private Double salarioBaseTrabalhador;
 
     private Departamento departamento;
-    private List<HoraContrato> contratos = new ArrayList<>();
 
-    public Trabalhador(String nome, NivelTrabalhador nivel, Double salarioMinimo, Departamento departamento) {
-        this.nome = nome;
-        this.nivel = nivel;
-        this.salarioMinimo = salarioMinimo;
+    private List<HoraContrato> horaContratos = new ArrayList<>();
+
+    public Trabalhador(String nomeTrabalhador, NivelTrabalhador nivelTrabalhador, Double salarioBaseTrabalhador, Departamento departamento) {
+        this.nomeTrabalhador = nomeTrabalhador;
+        this.nivelTrabalhador = nivelTrabalhador;
+        this.salarioBaseTrabalhador = salarioBaseTrabalhador;
         this.departamento = departamento;
     }
 
-    public String getNome() {
-        return nome;
+    public List<HoraContrato> getHoraContratos() {
+        return horaContratos;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public NivelTrabalhador getNivel() {
-        return nivel;
-    }
-
-    public void setNivel(NivelTrabalhador nivel) {
-        this.nivel = nivel;
-    }
-
-    public Double getSalarioMinimo() {
-        return salarioMinimo;
-    }
-
-    public void setSalarioMinimo(Double salarioMinimo) {
-        this.salarioMinimo = salarioMinimo;
-    }
-
-    public Departamento getDepartamento() {
-        return departamento;
-    }
-
-    public void setDepartamento(Departamento departamento) {
-        this.departamento = departamento;
-    }
-
-    public List<HoraContrato> getContratos() {
-        return contratos;
-    }
-
-    public String toString() {
-        return "Trabalhador{" +
-                "nome='" + nome + '\'' +
-                ", nivel=" + nivel +
-                ", salarioMinimo=" + salarioMinimo +
-                ", departamento=" + departamento +
-                ", contratos=" + contratos +
-                '}';
-    }
-
-    public void adicionarContrato(HoraContrato contrato) {
-        contratos.add(contrato);
+    public void addContratos(HoraContrato contrato) {
+        horaContratos.add(contrato);
     }
 
     public void removerContrato(HoraContrato contrato) {
-        contratos.remove(contrato);
+        horaContratos.remove(contrato);
     }
 
-    public Double renda(int mes, int ano) {
-        double soma = salarioMinimo;
+    public Double renda(String data) {
+        int mes = Integer.parseInt(data.substring(0, 2));
+        int ano = Integer.parseInt(data.substring(3, 7));
 
-        for (HoraContrato c : contratos) {
-            if (c.getDataContrato().getMonthValue() == mes && c.getDataContrato().getYear() == ano) {
-                soma += c.valorTotal();
+        double valorRenda = 0.00;
+
+        for (HoraContrato contrato : horaContratos) {
+            if (contrato.getDataContrato().getYear() == ano && contrato.getDataContrato().getMonthValue() == mes) {
+                valorRenda += contrato.valorTotal();
             }
         }
+        return valorRenda + salarioBaseTrabalhador;
 
-        return soma;
+    }
+
+    @Override
+    public String toString() {
+        return "Nome: " + nomeTrabalhador
+                + "\n"
+                + "Departamento: " + departamento.getNomeDepartamento();
     }
 }
