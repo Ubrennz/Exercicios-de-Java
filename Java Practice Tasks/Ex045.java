@@ -1,63 +1,53 @@
+import java.util.Scanner;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import entities.Trabalhador;
-import entities.HoraContrato;
 import entities.Departamento;
+import entities.HoraContrato;
 import entities.enums.NivelTrabalhador;
 
-import java.util.Scanner;
-import java.time.format.DateTimeFormatter;
-import java.time.LocalDate;
-
 public class Ex045 {
-    private static NivelTrabalhador[] niveisTrabalhador = {NivelTrabalhador.JUNIOR, NivelTrabalhador.PLENO, NivelTrabalhador.SENIOR};
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("---SISTEMA DO TRABALHADOR---");
-        System.out.print("Digite o departamento: ");
+        System.out.print("Digite o nome do departamento: ");
         Departamento departamento = new Departamento(sc.nextLine());
 
-        System.out.print("Digite o nome do trabalhador: ");
-        String nome = sc.nextLine();
-        int opcaoNivel;
+        System.out.println("Digite os dados do trabalhador:");
+        System.out.print("Nome: ");
+        String nomeTrabalhador = sc.nextLine();
+        System.out.print("Nivel: ");
+        String nivelTrabalhador = sc.next().toUpperCase();
+        System.out.print("Salário base: ");
+        double salarioBase = sc.nextDouble();
 
-        do {
-            System.out.println("[0] Para junior\n[1] Para Pleno\n[2] Para Senior");
-            System.out.print("Digite o opcaoNivel do trabalhador: ");
-            opcaoNivel = sc.nextInt();
+        Trabalhador trabalhador = new Trabalhador(nomeTrabalhador, NivelTrabalhador.valueOf(nivelTrabalhador), salarioBase, departamento);
+
+        System.out.print("Quantos contratos esse trabalhador tem? ");
+        int numeroContratos = sc.nextInt();
+
+        for (int i=1; i<=numeroContratos; i++) {
             sc.nextLine();
-        } while (opcaoNivel != 0 && opcaoNivel != 1 && opcaoNivel != 2);
 
-        System.out.print("Digite o salário minímo: ");
-        double salarioMinimo = sc.nextDouble();
-
-        Trabalhador trabalhador = new Trabalhador(nome, niveisTrabalhador[opcaoNivel], salarioMinimo, departamento);
-
-        System.out.print("Digite quantos contratos o trabalhador tem: ");
-        int numerosContratos = sc.nextInt();
-        sc.nextLine();
-
-        for (int i = 1; i <= numerosContratos; i++) {
-            System.out.print("Digite a data do #" + i + " contrato (Dia/Mês/Ano): ");
+            System.out.println("Digite os dados do contrato " + i);
+            System.out.print("Data (Dia/Mês/Ano): ");
             LocalDate dataContrato = LocalDate.parse(sc.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-
-            System.out.print("Digite o valor por hora trabalhada do contrato: ");
+            System.out.print("Valor por hora: ");
             double valorPorHora = sc.nextDouble();
-            System.out.print("Digite a duração (horas): ");
-            int horas = sc.nextInt();
+            System.out.print("Horas: ");
+            int horasContrato = sc.nextInt();
 
-            HoraContrato horaContrato = new HoraContrato(dataContrato, valorPorHora, horas);
-            trabalhador.adicionarContrato(horaContrato);
+            trabalhador.addContratos(new HoraContrato(dataContrato, valorPorHora, horasContrato));
+            System.out.println("Contrato " + i + " adicionado com sucesso!");
         }
 
-        System.out.print("Digite o mês e o ano para calcular a renda (Mês/Ano): ");
-        String mesAno = sc.next();
-        int mes = Integer.parseInt(mesAno.substring(0, 2));
-        int ano = Integer.parseInt(mesAno.substring(3, 7));
+        System.out.print("Digite o ano e mês para calcular a renda (mês/ano): ");
+        String data = sc.next();
 
-        System.out.println("Nome: " + trabalhador.getNome());
-        System.out.println("Departamento: " + departamento.getNome());
-        System.out.printf("Renda de %s: %.2f\n", mesAno, trabalhador.renda(mes, ano));
+        System.out.println(trabalhador);
+        System.out.println("Renda para " + data + ": " + trabalhador.renda(data));
 
         sc.close();
     }
