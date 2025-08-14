@@ -1,21 +1,13 @@
 package entities;
 
 public class Departamento {
-    private String nome;
+    private String nomeDepartamento;
 
-    public Departamento() {
-
+    public Departamento(String nomeDepartamento) {
+        this.nomeDepartamento = nomeDepartamento;
     }
 
-    public Departamento(String nome) {
-        this.nome = nome;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
+    public String getNomeDepartamento() {
+        return nomeDepartamento;
     }
 }
