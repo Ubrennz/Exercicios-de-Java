@@ -7,6 +7,10 @@ public class HoraContrato {
     private Double valorPorHora;
     private Integer horas;
 
+    public HoraContrato() {
+
+    }
+
     public HoraContrato(LocalDate dataContrato, Double valorPorHora, Integer horas) {
         this.dataContrato = dataContrato;
         this.valorPorHora = valorPorHora;
@@ -17,39 +21,16 @@ public class HoraContrato {
         return dataContrato;
     }
 
-    public int getAno() {
-        return dataContrato.getYear();
+    public Double valorTotal() {
+        return valorPorHora * horas;
     }
 
-    public void setDataContrato(LocalDate dataContrato) {
-        this.dataContrato = dataContrato;
-    }
-
-    public Double getValorPorHora() {
-        return valorPorHora;
-    }
-
-    public void setValorPorHora(Double valorPorHora) {
-        this.valorPorHora = valorPorHora;
-    }
-
-    public Integer getHoras() {
-        return horas;
-    }
-
-    public void setHoras(Integer horas) {
-        this.horas = horas;
-    }
-
+    @Override
     public String toString() {
         return "HoraContrato{" +
                 "dataContrato=" + dataContrato +
                 ", valorPorHora=" + valorPorHora +
                 ", horas=" + horas +
                 '}';
-    }
-
-    public double valorTotal() {
-        return valorPorHora * horas;
     }
 }
