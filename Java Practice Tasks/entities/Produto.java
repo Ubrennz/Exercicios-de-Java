@@ -12,6 +12,7 @@ import java.io.IOException;
 import exceptions.ProdutoException;
 
 public class Produto {
+    protected Integer codigoDeBarra;
     protected String nomeProduto;
     protected Double precoProduto;
     protected Integer qtdeProduto;
@@ -31,6 +32,13 @@ public class Produto {
     }
 
     public Produto(String nomeProduto, Double precoProduto, Integer qtdeProduto) {
+        this.nomeProduto = nomeProduto;
+        this.precoProduto = precoProduto;
+        this.qtdeProduto = qtdeProduto;
+    }
+
+    public Produto(Integer codigoDeBarra, String nomeProduto, Double precoProduto, Integer qtdeProduto) {
+        this.codigoDeBarra = codigoDeBarra;
         this.nomeProduto = nomeProduto;
         this.precoProduto = precoProduto;
         this.qtdeProduto = qtdeProduto;
@@ -99,6 +107,10 @@ public class Produto {
                 System.out.println("Erro com o arquivo do sumario!");
             }
         }
+    }
+
+    public String produtoParaEstoque() {
+        return codigoDeBarra + "," + nomeProduto + "," + String.format("%.2f", precoProduto) + "," + qtdeProduto;
     }
 
     public String toString() {
