@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import entities.Triangulo;
 
-public class Aula20 {
+public class Ex026 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Triangulo x, y;
