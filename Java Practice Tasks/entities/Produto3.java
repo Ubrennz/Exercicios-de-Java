@@ -1,6 +1,6 @@
 package entities;
 
-public class Produto3 {
+public class Produto3 implements Comparable<Produto3> {
     private String nome;
     private Double preco;
 
@@ -32,4 +32,11 @@ public class Produto3 {
     public String etiquetaDoProduto() {
         return nome + ", R$" + String.format("%.2f", preco);
     }
+
+    @Override
+    public int compareTo(Produto3 produto3) {
+        return nome.compareToIgnoreCase(produto3.getNome());
+    }
+
+
 }
